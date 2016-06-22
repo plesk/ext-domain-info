@@ -1,0 +1,18 @@
+<?php
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
+?>
+<table>
+    <?php foreach ($this->info as $property => $value) : ?>
+        <tr data-row="<?= $property ?>">
+
+            <td><?= pm_Locale::lmsg($property) . ':'; ?></td>
+
+            <?php if (is_array($value)) : ?>
+                <td><?= $this->partial('index/partial/list.phtml', ['data' => $value]); ?></td>
+            <?php else: ?>
+                <td><?= $this->escape($value); ?></td>
+            <?php endif; ?>
+
+        </tr>
+    <?php endforeach; ?>
+</table>
