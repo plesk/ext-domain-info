@@ -39,6 +39,8 @@ class IndexController extends pm_Controller_Action
             $domain = pm_Domain::getByGuid($params['domainGuid']);
         } elseif (isset($params['domainId'])) {
             $domain = pm_Domain::getByDomainId($params['domainId']);
+        } elseif (isset($params['site_id'])) {
+            $domain = pm_Domain::getByDomainId($params['site_id']);
         } else {
             $domain = pm_Session::getCurrentDomain();
         }
