@@ -17,13 +17,13 @@ class IndexController extends pm_Controller_Action
         }
 
         $form = new Modules_DomainInfo_Form_Domains();
-        $form->getElement('domainId')->setOptions([
+        $form->getElement('site_id')->setOptions([
             'multiOptions' => $domainSelector,
         ]);
 
         if ($this->_request->isPost() && $form->isValid($this->_request->getPost())) {
-            $domainId = (int)$this->_request->getParam('domainId');
-            $this->redirect($this->_helper->url('info', null, null, ['domainId' => $domainId]));
+            $domainId = (int)$this->_request->getParam('site_id');
+            $this->redirect($this->_helper->url('info', null, null, ['site_id' => $domainId]));
         }
 
         $this->view->form = $form;
@@ -33,12 +33,8 @@ class IndexController extends pm_Controller_Action
     {
         $params = $this->getAllParams();
 
-        if (isset($params['domainName'])) {
-            $domain = pm_Domain::getByName($params['domainName']);
-        } elseif (isset($params['domainGuid'])) {
-            $domain = pm_Domain::getByGuid($params['domainGuid']);
-        } elseif (isset($params['domainId'])) {
-            $domain = pm_Domain::getByDomainId($params['domainId']);
+        if (isset($params['site_id'])) {
+            $domain = pm_Domain::getByDomainId($params['site_id']);
         } else {
             $domain = pm_Session::getCurrentDomain();
         }
@@ -48,4 +44,3 @@ class IndexController extends pm_Controller_Action
         $this->view->info = Modules_DomainInfo_DomainInfo::getDomainInfo($domain);
     }
 }
-

@@ -10,7 +10,7 @@ class Modules_DomainInfo_Form_Domains extends pm_Form_Simple
             'description' => $this->lmsg('descriptionForm'),
         ]);
 
-        $this->addElement('select', 'domainId', [
+        $this->addElement('select', 'site_id', [
             'label' => $this->lmsg('listOfDomains'),
         ]);
 
