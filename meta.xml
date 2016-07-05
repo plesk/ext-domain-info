@@ -5,7 +5,7 @@
     <name>Domain Info</name>
     <description>This extension is an example extension with info of domain.</description>
     <version>1.0</version>
-    <release>1</release>
+    <release>2</release>
     <vendor>Plesk</vendor>
     <plesk_min_version>17.0.14</plesk_min_version>
 </module>
