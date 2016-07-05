@@ -4,6 +4,8 @@ $messages = [
     'pageTitle' => 'Extension Domain Info for Plesk',
     'pageInfoTitle' => 'Domain information for %%domain%%',
     'descriptionForm' => 'Choose domain to get more information about it.',
+    'domainInfoButtonTitle' => 'Domain info',
+    'domainInfoButtonDescription' => 'Information by current domain',
     'id' => 'ID',
     'guid' => 'GUID',
     'name' => 'Name',
@@ -24,4 +26,3 @@ $messages = [
     'no' => 'No',
     'undefined' => 'Undefined',
 ];
-
