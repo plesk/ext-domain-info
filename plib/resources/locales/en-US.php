@@ -19,10 +19,6 @@ $messages = [
     'vhostPath' => 'Virtual host path',
     'hasHosting' => 'Hosting',
     'listOfDomains' => 'List of domains',
-    'limits' => 'Limits',
-    'unlimited' => 'Unlimited',
-    'permissions' => 'Permissions',
     'yes' => 'Yes',
     'no' => 'No',
-    'undefined' => 'Undefined',
 ];
