@@ -16,7 +16,8 @@ class Modules_DomainInfo_DomainInfo
             'systemUser' => $domain->getSysUserLogin(),
             'clientLogin' => $domain->getClient()->getProperty('login'),
             'hasHosting' => pm_Locale::lmsg($domain->hasHosting() ? 'yes' : 'no'),
-            'ipAddresses' => $domain->getIpAddresses(), 'limits' => [
+            'ipAddresses' => $domain->getIpAddresses(),
+            'limits' => [
                 'max_site' => static::getCoreLimit($domain, 'max_site'),
             ],
             'permissions' => [
