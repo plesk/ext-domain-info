@@ -16,7 +16,30 @@ class Modules_DomainInfo_DomainInfo
             'systemUser' => $domain->getSysUserLogin(),
             'clientLogin' => $domain->getClient()->getProperty('login'),
             'hasHosting' => pm_Locale::lmsg($domain->hasHosting() ? 'yes' : 'no'),
-            'ipAddresses' => $domain->getIpAddresses(),
+            'ipAddresses' => $domain->getIpAddresses(), 'limits' => [
+                'max_site' => static::getCoreLimit($domain, 'max_site'),
+            ],
+            'permissions' => [
+                'manage_dns' => static::getCorePermission($domain, 'manage_dns'),
+            ]
         ];
+    }
+
+    protected static function getCoreLimit(pm_Domain $domain, $limitName)
+    {
+        $limit = $domain->getCoreLimit($limitName);
+
+        return -1 == $limit ? pm_Locale::lmsg('unlimited') : $limit;
+    }
+
+
+    protected static function getCorePermission(pm_Domain $domain, $permissionName)
+    {
+        $permission = $domain->hasCorePermission($permissionName);
+        if (is_null($permission)) {
+            return pm_Locale::lmsg('undefined');
+        }
+
+        return pm_Locale::lmsg($permission ? 'yes' : 'no');
     }
 }
